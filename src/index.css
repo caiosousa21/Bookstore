@@ -1,0 +1,120 @@
+body{
+    
+}
+
+button{
+    border:none;
+}
+
+.Barra{
+    height:100px;
+    background-color: #232f3e;
+    display: grid;
+    grid-template-columns: auto 100px;
+}
+
+.PBarra{
+    color:azure;
+    font-size: 80px;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 100px;
+}
+
+.BtnCarrinho{
+    grid-row-start: 2;
+    height: 50px;
+    width: 100px;
+    background-color: coral;
+}
+.Canto{
+    display: grid;
+    grid-template-rows: auto 50px;
+}
+
+.Elemento{
+
+}
+
+.Categoria{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+   grid-column-gap: 30px;
+}
+
+.Titulo{
+    font-family: sans-serif;
+    line-height: 1.3;
+    font-size:21;
+    display: grid;
+    grid-template-columns: auto 183px 183px;
+}
+
+.Inserir{
+    width: 183px;
+    height: 31px;
+    background-color: cadetblue;
+}
+
+.Buscar{
+    width: 183px;
+    height:31px;
+    background-color: darkkhaki;
+}
+
+.Card{
+    font-family: sans-serif;
+}
+
+.Capa{
+    font-size: 10px;
+    height: 150px;
+    align-self: center;
+    background-color:bisque;
+    width:100px;
+}
+
+.TituloLivro{
+    margin-top: 4px;
+    font-size: 9px;
+    line-height: 19px;
+}
+
+.Autor{
+    font-size: 8px;
+}
+
+.Editora{
+    color: #555;
+    font-size: 8px;
+    line-height: 1.5;  
+}
+
+.Data{
+    font-size: 8px;
+}
+
+.Livro{
+    width: 100px;
+    display:flex;
+    height:291px;
+    margin-bottom: 10%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Botoes{
+    align-self: flex-end;
+    width: 100px;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.BtnDescr{
+
+}
+
+.BtnAdd{
+   
+}
