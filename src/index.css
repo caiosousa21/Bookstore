@@ -1,7 +1,9 @@
 body{
     
 }
-
+hr{
+    width: 100%
+}
 button{
     border:none;
 }
@@ -33,6 +35,25 @@ button{
     grid-row-start: 3; 
     background-color: lightsalmon;
     z-index: 1;
+    overflow: auto;
+}
+
+.ItemCarrinho{
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    justify-content: space-between;
+}
+
+.PItem{
+    margin: 0;
+    text-align: center;
+}
+
+.ExcluirItem{
+    height: 10px;
+    width: 10px;
+    align-self: center;
 }
 
 .Canto{

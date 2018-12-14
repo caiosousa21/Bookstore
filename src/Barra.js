@@ -20,7 +20,7 @@ class Barra extends Component {
                 <p className='PBarra'>Caio Books</p>
                 <div className='Canto'>
                     <button className='BtnCarrinho' onClick={() => this.handleClick()}>Carrinho</button>
-                    {!this.state.isHidden && <Carrinho interior={this.props.teste} />}
+                    {!this.state.isHidden && <Carrinho interior={this.props.interior} clickExcluir={this.props.clickExcluir}/>}
                 </div>
             </div>
         )

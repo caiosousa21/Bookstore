@@ -8,22 +8,30 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-      itemsCarrinho: ['1', '2', '3', '4','5'],
+      itemsCarrinho: [],
     }
   }
 
   clickAdicionar=(item)=>{
-    console.log(item)
     this.setState({
       itemsCarrinho: this.state.itemsCarrinho.concat(item)
     });
-    console.log(this.state.itemsCarrinho)
+  }
+
+  clickExcluir=(i)=>{
+    let arrayItems = this.state.itemsCarrinho.slice(0,this.state.itemsCarrinho.length);
+    if(i!==-1){
+      arrayItems.splice(i,1);
+    }
+    this.setState({
+      itemsCarrinho:arrayItems
+    });
   }
 
   render() {
     return (
       <div className="App">
-        <Barra teste={this.state.itemsCarrinho} />
+        <Barra interior={this.state.itemsCarrinho} clickExcluir={this.clickExcluir}/>
         <Elemento clickAdicionar={this.clickAdicionar}/>
       </div>
     );
