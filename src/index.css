@@ -27,9 +27,17 @@ button{
     width: 100px;
     background-color: coral;
 }
+
+.Carrinho{
+    height: 200px;  
+    grid-row-start: 3; 
+    background-color: lightsalmon;
+    z-index: 1;
+}
+
 .Canto{
     display: grid;
-    grid-template-rows: auto 50px;
+    grid-template-rows: 50px 50px 200px;
 }
 
 .Elemento{
@@ -69,9 +77,14 @@ button{
 .Capa{
     font-size: 10px;
     height: 150px;
-    align-self: center;
     background-color:bisque;
     width:100px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.PCapa{
+    margin-top: 70%
 }
 
 .TituloLivro{
@@ -112,9 +125,10 @@ button{
 }
 
 .BtnDescr{
-
+    background-color:teal;
 }
 
 .BtnAdd{
-   
+   background-color: coral;
 }
+

@@ -4,7 +4,7 @@ class Titulo extends Component {
     render() {
         return (
             <h2 className='Titulo'>
-                titulo
+                {this.props.categoria}
                 <button className='Inserir'>Inserir Livro</button>
                 <button className='Buscar'>Buscar Livro</button>
             </h2>
