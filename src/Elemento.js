@@ -2,19 +2,30 @@ import React, { Component } from 'react';
 import Categoria from './Categoria'
 
 class Elemento extends Component {
-    constructor(props){
-        super(props);
-        this.state={
-            categoria:['caio', 'neymar', 'ronaldo','seilá'] 
+    buscarLista = () => {
+        let url = 'https://api.nytimes.com/svc/books/v3/lists/names.json?api-key=7a7846ce976e4df6ae218249bfb3a631&list=';
+        function Get(urlLista) {
+            var Httpreq = new XMLHttpRequest();
+            Httpreq.open('GET', urlLista, false);
+            Httpreq.send(null);
+            return Httpreq.responseText;
         }
-    }
-
-    criarCategoria = () => {
-        let cater = [];
+        let ListaListas = JSON.parse(Get(url));
+        
+        let Listas =[];
         for (let i = 0; i < 4; i++) {
-            cater.push(<Categoria key={'categoria'+i} categoria={this.state.categoria[i]} clickAdicionar={this.props.clickAdicionar}/>);
+            Listas[i] = {a:ListaListas.results[i].list_name, b:ListaListas.results[i].list_name_encoded};
         }
-        return cater
+        return(Listas)
+    }
+    
+    criarCategoria = () => {
+        let lista = this.buscarLista();
+        let categ = [];
+        for (let i = 0; i < 4; i++) {
+            categ.push(<Categoria key={'categoria' + i} categoria={lista[i].a} nome={lista[i].b} clickAdicionar={this.props.clickAdicionar} />);
+        }
+        return categ
     }
 
     render() {

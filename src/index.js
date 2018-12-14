@@ -12,7 +12,7 @@ class App extends React.Component {
     }
   }
 
-  clickAdicionar=(item)=>{
+  clickAdicionar = (item)=>{
     this.setState({
       itemsCarrinho: this.state.itemsCarrinho.concat(item)
     });
