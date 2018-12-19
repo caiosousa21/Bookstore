@@ -73,23 +73,49 @@ button{
 }
 
 .Titulo{
+    margin-top: 8px;
+    margin-right: 8px;
     font-family: sans-serif;
     line-height: 1.3;
     font-size:21;
     display: grid;
-    grid-template-columns: auto 183px 183px;
+    grid-template-columns: auto 183px 183px
+
+}
+
+.HeaderTitulo{
+    grid-row-start: 1;
+    grid-column-start: 1;
 }
 
 .Inserir{
+    align-content: center;
+    display: grid;
     width: 183px;
-    height: 31px;
+    height:37px;
     background-color: cadetblue;
+    grid-template-rows: auto auto;
+    grid-template-rows: 50px 50px 50px
+}
+
+.FormInserir{
+    margin-top:8px;
+    flex-direction: column;
+}
+
+.DivInserir{
+    background-color: cadetblue;
+    grid-row-start: 2;
+    grid-column-start: 2;
 }
 
 .Buscar{
+    display: grid;
     width: 183px;
-    height:31px;
+    height: 150px;
     background-color: darkkhaki;
+    grid-row-start: 1;
+    grid-column-start: 3;
 }
 
 .Card{

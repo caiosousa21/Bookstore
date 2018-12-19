@@ -6,7 +6,7 @@ class Categoria extends Component {
     carregarLivro = () => {
             let lista = this.props.listaLivros;
             let livro = [];
-            for (let i = 0; i < 15; i++) {
+            for (let i = 0; i < lista.length; i++) {
                 livro.push(<Livro key={'livro'+i}  livro={lista[i]} clickAdicionar={this.props.clickAdicionar}/>)
             }
             return livro
@@ -17,7 +17,7 @@ class Categoria extends Component {
     render() {
         return (
             <div >
-                <Titulo categoria={this.props.categoria} />
+                <Titulo categoria={this.props.categoria} clickAdicionarLivro={this.props.clickAdicionarLivro} indexCategoria={this.props.indexCategoria}/>
                 <hr />
                 <div className='Categoria'>
                     {this.carregarLivro()}
