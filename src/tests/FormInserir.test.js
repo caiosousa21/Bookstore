@@ -10,12 +10,23 @@ describe('FormInserir', () => {
     test('Renderizando Form', () => {
         const wrapper = shallow(<FormInserir />);
         expect(wrapper.exists()).toBe(true);
-    }),
-    test('Inserindo Titulo no Form', () => {
+    });
+
+    for (let i = 0; i < 3; i++) {
+        test('Inserindo Titulo, Autor e Editora no Form', () => {
+            const wrapper = shallow(<FormInserir />);
+            wrapper.find("input").at(i).simulate('change', { target: { value: 'caio' } });
+            expect(wrapper.find("input").at(i).props().value).toBe('caio');
+        })
+    };
+
+    test('Inserindo Data no Form', () => {
         const wrapper = shallow(<FormInserir />);
-        wrapper.find("input.InserirTitulo").simulate('change', { target: { value: 'caio' } });
-        expect(wrapper.find("input.InserirTitulo").props().value).toBe('caio');
+        wrapper.find("input").at(3).simulate('change', { target: { value: '2' } });
+        expect(wrapper.find("input.InserirData").props().value).toBe('2');
     }),
+
+
     it('Previnindo comportamento default onSubmit do Form, e checando se ele está chamando a função clickAdicionarLivro', () => {
         const clickAdicionarLivro = jest.fn();
         const wrapper = shallow(<FormInserir clickAdicionarLivro={clickAdicionarLivro} />);
