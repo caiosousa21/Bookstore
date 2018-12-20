@@ -1,4 +1,4 @@
-import {buscarLista} from '../buscarLista';
+import {buscarLista} from '../utils/buscarLista';
 
 test('buscarLista', ()=>{
     expect(buscarLista()).toEqual( [{"a": "Combined Print and E-Book Fiction", "b": [{"autor": "John Grisham", "data": "2018-12-30", "editora": "Doubleday", "titulo": "THE RECKONING"}, {"autor": "Nicholas Sparks", "data": "2018-12-30",

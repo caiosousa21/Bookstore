@@ -1,5 +1,5 @@
 import React from 'react';
-import Barra from '../Barra';
+import Barra from '../components/Barra';
 import Enzyme, { shallow, mount } from "enzyme";
 import Adapter from 'enzyme-adapter-react-16';
 

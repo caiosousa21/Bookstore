@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Barra from './Barra';
 import Elemento from './Elemento';
 import './index.css'
-import {buscarLista} from './buscarLista'
+import {buscarLista} from '../utils/buscarLista'
 
 class App extends React.Component {
   constructor(props) {

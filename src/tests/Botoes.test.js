@@ -1,5 +1,5 @@
 import React from 'react';
-import Botoes from '../Botoes';
+import Botoes from '../components/Botoes';
 import Enzyme, { shallow, mount } from "enzyme";
 import Adapter from 'enzyme-adapter-react-16';
 
