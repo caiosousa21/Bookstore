@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Elemento Testando interface com snapshots 1`] = `
+<div
+  className="Elemento"
+>
+  <div>
+    <div
+      className="Titulo"
+    >
+      <h2
+        className="HeaderTitulo"
+      >
+        caio
+      </h2>
+      <div
+        className="InserirDiv"
+      >
+        <button
+          className="Inserir"
+          onClick={[Function]}
+        >
+          Inserir Livro
+        </button>
+        <form
+          className="FormInserir"
+          onSubmit={[Function]}
+        >
+          <div>
+            <input
+              className="InserirTitulo"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <input
+              className="InserirAutor"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <input
+              className="InserirEditora"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <input
+              className="InserirData"
+              onChange={[Function]}
+              type="Date"
+              value=""
+            />
+          </div>
+          <input
+            type="submit"
+          />
+        </form>
+      </div>
+      <button
+        className="Buscar"
+      >
+        Buscar Livro
+      </button>
+    </div>
+    <hr />
+    <div
+      className="Categoria"
+    >
+      <div
+        className="Livro"
+      >
+        <div
+          className="Card"
+        >
+          <div
+            className="Capa"
+          >
+            <p
+              className="PCapa"
+            >
+              Capa
+            </p>
+          </div>
+          <p
+            className="TituloLivro"
+          />
+          <p
+            className="Autor"
+          />
+          <p
+            className="Editora"
+          />
+          <p
+            className="Data"
+          />
+        </div>
+        <div
+          className="Botoes"
+        >
+          <button
+            className="BtnDescr"
+          >
+            Descr
+          </button>
+          <button
+            className="BtnAdd"
+            onClick={[Function]}
+          >
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

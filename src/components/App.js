@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Barra from './Barra';
 import Elemento from './Elemento';
-import './index.css'
 import {buscarLista} from '../utils/buscarLista'
 
 class App extends React.Component {
@@ -32,8 +30,6 @@ class App extends React.Component {
   //   localStorage.set('rootState',this.state.listaListas)
   // }
 
-
-  //click adicionar ao carrinho
   clickAdicionar = (item) => {
     this.setState({
       itemsCarrinho: this.state.itemsCarrinho.concat(item)
@@ -50,35 +46,18 @@ class App extends React.Component {
         }
       }
     );
-  
     this.setState({
-        listaLivros:arrayb,
-          
-        
+        listaLivros:arrayb, 
       },console.log(this.state.listaLivros))
-    // let arrayb = this.state.listaListas.map((listaListas) => listaListas.b);
-    // arrayb = arrayb[index].concat(livro);
-    // this.setState({
-    //   listaListas:{
-    //     ...this.state.listaListas,
-    //     b:arrayb
-    //   }
-    // },()=>console.log(this.state.listaListas))
   }
-
-
 
   clickExcluir = (i) => {
     let arrayItems = this.state.itemsCarrinho.slice(0, this.state.itemsCarrinho.length);
-    if (i !== -1) {
-      arrayItems.splice(i, 1);
-    }
+    arrayItems.splice(i, 1);
     this.setState({
       itemsCarrinho: arrayItems
     });
   }
-
-  
 
   render() {
     return (
@@ -89,6 +68,4 @@ class App extends React.Component {
     );
   }
 }
-
-ReactDOM.render(<App />, document.getElementById('root'));
-
+export default App;
