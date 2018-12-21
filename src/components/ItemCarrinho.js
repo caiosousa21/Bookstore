@@ -12,5 +12,3 @@ class ItemCarrinho extends Component {
     }
 }
 export default ItemCarrinho;
-
-

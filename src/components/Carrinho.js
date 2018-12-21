@@ -7,7 +7,7 @@ class Carrinho extends Component {
         for (let i = 0; i < this.props.interior.length; i++) {
             item.push(<ItemCarrinho key={'item'+i} item={this.props.interior[i]} clickExcluir={this.props.clickExcluir} index={i}/>);
         }
-        return item
+        return item;
     }
 
     render() {
