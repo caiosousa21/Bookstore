@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Livro Testando interface com snapshots 1`] = `
+<div
+  className="Livro"
+>
+  <div
+    className="Card"
+  >
+    <div
+      className="Capa"
+    >
+      <p
+        className="PCapa"
+      >
+        Capa
+      </p>
+    </div>
+    <p
+      className="TituloLivro"
+    >
+      fakeLivro
+    </p>
+    <p
+      className="Autor"
+    >
+      fakeAutor
+    </p>
+    <p
+      className="Editora"
+    >
+      fakeEditora
+    </p>
+    <p
+      className="Data"
+    >
+      1
+    </p>
+  </div>
+  <div
+    className="Botoes"
+  >
+    <button
+      className="BtnDescr"
+    >
+      Descr
+    </button>
+    <button
+      className="BtnAdd"
+      onClick={[Function]}
+    >
+      Add
+    </button>
+  </div>
+</div>
+`;

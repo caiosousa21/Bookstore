@@ -11,10 +11,10 @@ class Titulo extends Component {
     }
     handleClick = (e) => {
         e.preventDefault();
-        this.setState({
-            isHidden: !this.state.isHidden,
-            btnExpandido: !this.state.btnExpandido
-        })
+        // this.setState({
+        //     isHidden: !this.state.isHidden,
+        //     btnExpandido: !this.state.btnExpandido
+        // })
     }
 
     render() {
@@ -22,9 +22,9 @@ class Titulo extends Component {
             <div className='Titulo'>
                 <h2 className='HeaderTitulo'>{this.props.categoria}</h2>
                 <div className='InserirDiv'>
-                    <button className='Inserir'>
+                    <button className='Inserir' onClick={this.handleClick}>
                         Inserir Livro
-                </button>
+                    </button>
                     <FormInserir clickAdicionarLivro={this.props.clickAdicionarLivro} categoria={this.props.categoria} indexCategoria={this.props.indexCategoria}/>
                 </div>
                 <button className='Buscar'>Buscar Livro</button>
