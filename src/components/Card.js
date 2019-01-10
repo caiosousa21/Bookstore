@@ -5,10 +5,10 @@ class Card extends Component {
         return (
             <div className='Card'>
                 <div className='Capa'><p className='PCapa'>Capa</p></div>
-                <p className='TituloLivro'>{this.props.livro.titulo}</p>
-                <p className='Autor'>{this.props.livro.autor}</p>
-                <p className='Editora'>{this.props.livro.editora}</p>
-                <p className='Data'>{this.props.livro.data}</p>
+                <p className='TituloLivro'></p>
+                <p className='Autor'></p>
+                <p className='Editora'></p>
+                <p className='Data'></p>
             </div>
         )
     }

@@ -10,24 +10,14 @@ class Elemento extends Component {
             for (let i = 0; i < listaListas.length; i++) {
                 categ.push(
                     <Categoria
-                        key={'categoria' + i}
-                        categoria={listaListas[i]}
-                        listaLivros={listaLivros[i]}
-                        clickAdicionar={this.props.clickAdicionar}
-                        clickAdicionarLivro={this.props.clickAdicionarLivro}
-                        indexCategoria={i}
+                  
                     />);
             }
         } else {
             for (let i = 0; i < 4; i++) {
                 categ.push(
                     <Categoria
-                        key={'categoria' + i}
-                        categoria={listaListas[i]}
-                        listaLivros={listaLivros[i]}
-                        clickAdicionar={this.props.clickAdicionar}
-                        clickAdicionarLivro={this.props.clickAdicionarLivro}
-                        indexCategoria={i}
+                   
                     />);
             }
         }
@@ -37,7 +27,7 @@ class Elemento extends Component {
     render() {
         return (
             <div className='Elemento'>
-                {this.criarCategoria()}
+               
             </div>
         )
     }

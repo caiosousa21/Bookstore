@@ -6,7 +6,7 @@ class Livro extends Component {
         return (
             <div className='Botoes'>
                 <button className='BtnDescr'>Descr</button>
-                <button className='BtnAdd' onClick={()=>{this.props.clickAdicionar(this.props.livro.titulo)}}>Add</button>
+                <button className='BtnAdd'>Add</button>
             </div>
         )
     }

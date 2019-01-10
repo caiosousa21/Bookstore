@@ -4,8 +4,8 @@ class ItemCarrinho extends Component {
     render() {
         return (
             <div className='ItemCarrinho'>
-                <p className='PItem'>{this.props.item}</p>
-                <button className='ExcluirItem' onClick={()=>{this.props.clickExcluir(this.props.index)}}></button>
+                <p className='PItem'></p>
+                <button className='ExcluirItem' ></button>
                 <hr></hr>
             </div>
         )
