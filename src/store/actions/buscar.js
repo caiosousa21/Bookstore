@@ -1,5 +1,6 @@
 export const Types = {
-    INICIO_BUSCA: 'buscar/INICIO_BUSCA',
+    INICIO_BUSCA_LISTAS: 'buscar/INICIO_BUSCA_LISTAS',
+    INICIO_BUSCA_LIVROS: 'buscar/INICIO_BUSCA_LIVROS',
     BUSCAR_LISTAS_SUCESSO: 'buscar/BUSCAR_LISTAS_SUCESSO',
     BUSCAR_LISTAS_FALHA: 'buscar/BUSCAR_LISTAS_FALHA',
     BUSCAR_LIVROS_SUCESSO: 'buscar/BUSCAR_LIVROS_SUCESSO',
@@ -7,14 +8,18 @@ export const Types = {
 }
 
 export const Creators = {
-    inicioBusca: () => ({
-        type: Types.INICIO_BUSCA,
+    inicioBuscaListas: () => ({
+        type: Types.INICIO_BUSCA_LISTAS,
+    }),
+
+    inicioBuscaLivros: () => ({
+        type: Types.INICIO_BUSCA_LIVROS,
     }),
 
     buscarListaListas: () => {
         return dispatch => {
             let i = 0;
-            dispatch(Creators.inicioBusca())
+            dispatch(Creators.inicioBuscaListas())
             fetch('https://api.nytimes.com/svc/books/v3/lists/names.json?api-key=7a7846ce976e4df6ae218249bfb3a631&list=')
                 .then(response => response.json())
                 .then(json => {
@@ -38,6 +43,8 @@ export const Creators = {
 
     buscarListaLivros: lista => {
         return dispatch => {
+            dispatch(Creators.inicioBuscaLivros())
+            
             fetch('https://api.nytimes.com/svc/books/v3/lists.json?api-key=7a7846ce976e4df6ae218249bfb3a631&list=' + lista)
                 .then(response => response.json())
                 .then((json) => json.results)
