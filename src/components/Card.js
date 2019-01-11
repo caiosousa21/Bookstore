@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 
-class Card extends Component {
-    render() {
-        return (
+const Card = props => (
             <div className='Card'>
                 <div className='Capa'><p className='PCapa'>Capa</p></div>
-                <p className='TituloLivro'></p>
-                <p className='Autor'></p>
-                <p className='Editora'></p>
-                <p className='Data'></p>
+                <p className='TituloLivro'>{props.titulo}</p>
+                <p className='Autor'>{props.autor}</p>
+                <p className='Editora'>{props.editora}</p>
+                <p className='Data'>{props.data}</p>
             </div>
         )
-    }
-}
+    
 export default Card;

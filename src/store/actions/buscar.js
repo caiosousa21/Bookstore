@@ -13,11 +13,12 @@ export const Creators = {
 
     buscarListaListas: () => {
         return dispatch => {
+            let i = 0;
             dispatch(Creators.inicioBusca())
             fetch('https://api.nytimes.com/svc/books/v3/lists/names.json?api-key=7a7846ce976e4df6ae218249bfb3a631&list=')
                 .then(response => response.json())
                 .then(json => {
-                    const lista = json.results.map(result => ({ nomeL: result.list_name, nomeB: result.list_name_encoded }))
+                    const lista = json.results.map(result => ({ nomeL: result.list_name, nomeB: result.list_name_encoded, ref:i++}))
                     return lista
                 }
                 )
@@ -46,11 +47,9 @@ export const Creators = {
                 })
                 .then(detalhes => {
                     const livro = detalhes.map(detalhe => ({ titulo: detalhe.detalhes.title, autor: detalhe.detalhes.author, editora: detalhe.detalhes.publisher, data: detalhe.data }))
-                    console.log(livro)
                     return livro
                 })
-                .then((autor) => dispatch(Creators.buscarLivrosSucesso(autor)))
-
+                .then((livro) => dispatch(Creators.buscarLivrosSucesso(livro)))
                 .catch(() => dispatch(Creators.buscarLivrosFalha()))
         }
     },
@@ -63,6 +62,4 @@ export const Creators = {
     buscarLivrosFalha: () => ({
         type: Types.BUSCAR_LIVROS_FALHA,
     }),
-
-
 }
