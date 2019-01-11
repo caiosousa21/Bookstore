@@ -1,8 +1,6 @@
 import React from 'react';
 import Barra from './Barra';
 import Elemento from './Elemento';
-import { buscarListaListas } from '../utils/buscarListaListas';
-import { buscarLista } from '../utils/buscarLista';
 
 import {Provider} from 'react-redux'
 import store from '../store'

@@ -3,7 +3,6 @@ import thunk from 'redux-thunk'
 import logger from 'redux-logger' 
 
 import reducers from './reducers'
-import { buscarListaListas } from '../utils/buscarListaListas';
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

@@ -1,36 +1,39 @@
 import React, { Component } from 'react';
-import Categoria from './Categoria'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import { Creators as BuscarActions } from '../store/actions/buscar'
 
 class Elemento extends Component {
-    criarCategoria = () => {
-        let listaListas = this.props.listaListas;
-        let listaLivros = this.props.listaLivros;
-        let categ = [];
-        if (listaListas.length < 4) {
-            for (let i = 0; i < listaListas.length; i++) {
-                categ.push(
-                    <Categoria
-                  
-                    />);
-            }
-        } else {
+    componentDidMount() {
+        this.props.buscarListaListas();
+
+    }
+
+    componentDidUpdate() {
+        if (!this.props.carregandoListas) {
+            const listaListas = this.props.listaListas.map(item => (item))
             for (let i = 0; i < 4; i++) {
-                categ.push(
-                    <Categoria
-                   
-                    />);
+                this.props.buscarListaLivros(listaListas[i].nomeB)
+                
             }
         }
-        return categ
     }
 
     render() {
         return (
             <div className='Elemento'>
-               
+
             </div>
         )
     }
 }
 
-export default Elemento;
+const mapStateToProps = state => ({
+    carregandoListas: state.buscar.carregandoListas,
+    listaListas: state.buscar.listaListas,
+    listaLivros: state.buscar.listaLivros,
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators(BuscarActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Elemento);

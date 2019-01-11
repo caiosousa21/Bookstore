@@ -16,17 +16,17 @@ export default function buscar(state = initialState, action) {
                 carregandoListas: true,
                 carregandoLivros:true,
             }
-        case Types.BUSCAR_LISTA_SUCESSO:
+        case Types.BUSCAR_LISTAS_SUCESSO:
             return {
                 ...state,
+                listaListas:action.listaListas,
                 carregandoListas:false,
-                listaListas:action.listaListas
             }
-        case Types.BUSCAR_LIVRO_SUCESSO:
+        case Types.BUSCAR_LIVROS_SUCESSO:
             return {
                 ...state,
                 carregandoLivros:false,
-                listaLivros:action.listaLivros
+                listaLivros:[...state.listaLivros, action.listaLivros],
             }
         default:
             return state;
