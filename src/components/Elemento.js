@@ -6,15 +6,13 @@ import { Creators as BuscarActions } from '../store/actions/buscar'
 class Elemento extends Component {
     componentDidMount() {
         this.props.buscarListaListas();
-
     }
 
     componentDidUpdate() {
-        if (!this.props.carregandoListas) {
+        if (!this.props.carregandoListas &&  this.props.carregandoLivros) {
             const listaListas = this.props.listaListas.map(item => (item))
             for (let i = 0; i < 4; i++) {
-                this.props.buscarListaLivros(listaListas[i].nomeB)
-                
+                this.props.buscarListaLivros(listaListas[i].nomeB) 
             }
         }
     }
@@ -30,6 +28,8 @@ class Elemento extends Component {
 
 const mapStateToProps = state => ({
     carregandoListas: state.buscar.carregandoListas,
+    carregandoLivros: state.buscar.carregandoLivros,
+
     listaListas: state.buscar.listaListas,
     listaLivros: state.buscar.listaLivros,
 })

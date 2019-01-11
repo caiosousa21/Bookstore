@@ -18,9 +18,9 @@ export default function buscar(state = initialState, action) {
             }
         case Types.BUSCAR_LISTAS_SUCESSO:
             return {
-                ...state,
-                listaListas:action.listaListas,
+                ...state, 
                 carregandoListas:false,
+                listaListas:action.listaListas,
             }
         case Types.BUSCAR_LIVROS_SUCESSO:
             return {
