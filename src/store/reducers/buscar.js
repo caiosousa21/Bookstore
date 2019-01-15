@@ -14,12 +14,12 @@ export default function buscar(state = initialState, action) {
             return {
                 ...state,
                 carregandoListas: true,
+                carregandoLivros: true,
             }
         case Types.INICIO_BUSCA_LIVROS:
             return {
-                
+                carregandoLivros: false,
                 ...state,
-                carregandoLivros: true,
             }
         case Types.BUSCAR_LISTAS_SUCESSO:
             return {
