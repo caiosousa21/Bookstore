@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ItemCarrinho from './ItemCarrinho';
 import id from 'uuid/v1'
 

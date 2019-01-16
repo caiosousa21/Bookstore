@@ -9,6 +9,7 @@ export const Types = {
     BUSCAR_LIVROS_FIM: 'buscar/BUSCAR_LIVROS_FIM',
     BUSCAR_LIVROS_FALHA: 'buscar/BUSCAR_LIVROS_FALHA',
     ADICIONAR_ITEM: 'buscar/ADICIONAR_iTEM',
+    EXCLUIR_ITEM: 'EXCLUIR_ITEM',
     TELA_INICIADA: 'TELA_INICIADA',
 }
 
@@ -71,6 +72,11 @@ export const Creators = {
 
     adicionarItem:(item) =>({
         type: Types.ADICIONAR_ITEM,
+        item,
+    }),
+
+    excluirItem:(item) =>({
+        type: Types.EXCLUIR_ITEM,
         item,
     }),
 

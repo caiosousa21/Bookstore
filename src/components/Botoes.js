@@ -4,17 +4,17 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 
 class Botoes extends Component {
-    handleClick = (e) => {
+    clickAdicionar = (e) => {
         e.preventDefault()
-        this.props.adicionarItem(this.props.livro.titulo)
+        const item={a:this.props.livro.titulo}
+        this.props.adicionarItem(item.a)
     }
+
     render() {
-
-
         return (
             <div className='Botoes'>
                 <button className='BtnDescr'>Descr</button>
-                <button className='BtnAdd' onClick={this.handleClick}>Add</button>
+                <button className='BtnAdd' onClick={this.clickAdicionar}>Add</button>
             </div>
         )
     }
