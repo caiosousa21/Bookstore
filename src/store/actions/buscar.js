@@ -1,10 +1,14 @@
+import buscaInicial from '../../helpers/buscaInicial'
+
 export const Types = {
     INICIO_BUSCA_LISTAS: 'buscar/INICIO_BUSCA_LISTAS',
     INICIO_BUSCA_LIVROS: 'buscar/INICIO_BUSCA_LIVROS',
     BUSCAR_LISTAS_SUCESSO: 'buscar/BUSCAR_LISTAS_SUCESSO',
     BUSCAR_LISTAS_FALHA: 'buscar/BUSCAR_LISTAS_FALHA',
     BUSCAR_LIVROS_SUCESSO: 'buscar/BUSCAR_LIVROS_SUCESSO',
+    BUSCAR_LIVROS_FIM: 'buscar/BUSCAR_LIVROS_FIM',
     BUSCAR_LIVROS_FALHA: 'buscar/BUSCAR_LIVROS_FALHA',
+    TELA_PREENCHIDA: 'buscar/TELA_PREENCHIDA',
 }
 
 export const Creators = {
@@ -15,18 +19,17 @@ export const Creators = {
     inicioBuscaLivros: () => ({
         type: Types.INICIO_BUSCA_LIVROS,
     }),
-
+    //apikey=7a7846ce976e4df6ae218249bfb3a631   1HrlQk8lpCbcHkMRiAfKe6ctB0aKTSIG
     buscarListaListas: () => {
         return dispatch => {
             let i = 0;
             dispatch(Creators.inicioBuscaListas())
-            fetch('https://api.nytimes.com/svc/books/v3/lists/names.json?api-key=7a7846ce976e4df6ae218249bfb3a631&list=')
+            fetch('https://api.nytimes.com/svc/books/v3/lists/names.json?api-key=1HrlQk8lpCbcHkMRiAfKe6ctB0aKTSIG&lists=')
                 .then(response => response.json())
                 .then(json => {
-                    const lista = json.results.map(result => ({ nomeL: result.list_name, nomeB: result.list_name_encoded, ref:i++}))
+                    const lista = json.results.map(result => ({ nomeL: result.list_name, nomeB: result.list_name_encoded, ref: i++ }))
                     return lista
-                }
-                )
+                })
                 .then((lista) => dispatch(Creators.buscarListasSucesso(lista)))
                 .catch(() => dispatch(Creators.buscarListasFalha()))
         }
@@ -41,32 +44,32 @@ export const Creators = {
         type: Types.BUSCAR_LISTAS_FALHA,
     }),
 
-    buscarListaLivros: lista => {
+    buscarListaLivros:(lista0, lista1, lista2, lista3) => {
         return dispatch => {
-            dispatch(Creators.inicioBuscaLivros())
-            
-            fetch('https://api.nytimes.com/svc/books/v3/lists.json?api-key=7a7846ce976e4df6ae218249bfb3a631&list=' + lista)
-                .then(response => response.json())
-                .then((json) => json.results)
-                .then(results => {
-                    const detalhes = results.map(result => ({ detalhes: result.book_details[0], data: result.published_date }))
-                    return detalhes
-                })
-                .then(detalhes => {
-                    const livro = detalhes.map(detalhe => ({ titulo: detalhe.detalhes.title, autor: detalhe.detalhes.author, editora: detalhe.detalhes.publisher, data: detalhe.data }))
-                    return livro
-                })
-                .then((livro) => dispatch(Creators.buscarLivrosSucesso(livro)))
-                .catch(() => dispatch(Creators.buscarLivrosFalha()))
+                async function busca(){
+                   const res = await buscaInicial(lista0, lista1, lista2, lista3)
+                   console.log(res)
+                }
+                
+                busca()
+                
+               
         }
     },
 
-    buscarLivrosSucesso: listaLivros => ({
-        type: Types.BUSCAR_LIVROS_SUCESSO,
-        listaLivros,
+buscarLivrosSucesso: listaLivros => ({
+    type: Types.BUSCAR_LIVROS_SUCESSO,
+    listaLivros,
+}),
+
+    buscarLivrosFim: () => ({
+        type: Types.BUSCAR_LIVROS_FIM,
     }),
 
-    buscarLivrosFalha: () => ({
-        type: Types.BUSCAR_LIVROS_FALHA,
-    }),
+        buscarLivrosFalha: () => ({
+            type: Types.BUSCAR_LIVROS_FALHA,
+        }),
+            telaPreenchida: () => ({
+                type: Types.TELA_PREENCHIDA,
+            }),
 }

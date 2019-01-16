@@ -5,6 +5,7 @@ const initialState = {
     listaLivros: [],
     carregandoListas: false,
     carregandoLivros: false,
+    telaInicial: false,
     erro: false,
 }
 
@@ -32,6 +33,11 @@ export default function buscar(state = initialState, action) {
                 ...state,
                 carregandoLivros: false,
                 listaLivros: [...state.listaLivros, action.listaLivros],
+            }
+        case Types.TELA_PREENCHIDA:
+            return {
+                ...state,
+                telaInicial: true,
             }
         default:
             return state;

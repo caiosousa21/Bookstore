@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Creators as BuscarActions } from '../store/actions/buscar'
 
 import Categoria from './Categoria'
+import { resolve } from 'path';
 
 class Elemento extends Component {
     componentDidMount() {
@@ -13,25 +14,22 @@ class Elemento extends Component {
     componentDidUpdate() {
         if (!this.props.carregandoListas && this.props.carregandoLivros) {
             const listaListas = this.props.listaListas.map(item => (item))
-            for (let i = 0; i < 4; i++) {
-                this.props.buscarListaLivros(listaListas[i].nomeB)
-            }
+            this.telaInicial(listaListas);
         }
+    }
+
+    telaInicial = async (listaListas) => {
+        this.props.buscarListaLivros(listaListas[0].nomeB, listaListas[1].nomeB, listaListas[2].nomeB, listaListas[3].nomeB)
     }
 
     render() {
         return (
             <div className='Elemento'>
-                {/* {
-                    !this.props.carregandoListas && 
-                    !this.props.carregandoLivros &&
-                    this.props.listaListas.map(
-                        categoria=>(this.props.listaLivros[categoria.ref])
-                    )&&
-                    this.props.listaListas.map(
-                        categoria=>console.log(this.props.listaLivros[categoria.ref].map(livro=>console.log(livro)))
-                    )
-                } */}
+                {
+                    this.props.telaInicial && this.props.listaLivros.map(lista => (<p>{lista}</p>))
+
+
+                }
             </div>
         )
     }
