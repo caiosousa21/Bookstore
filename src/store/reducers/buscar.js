@@ -5,7 +5,6 @@ const initialState = {
     listaLivros: [],
     carregandoListas: false,
     carregandoLivros: false,
-    telaInicial: false,
     erro: false,
 }
 
@@ -19,7 +18,6 @@ export default function buscar(state = initialState, action) {
             }
         case Types.INICIO_BUSCA_LIVROS:
             return {
-                carregandoLivros: false,
                 ...state,
             }
         case Types.BUSCAR_LISTAS_SUCESSO:
@@ -32,12 +30,7 @@ export default function buscar(state = initialState, action) {
             return {
                 ...state,
                 carregandoLivros: false,
-                listaLivros: [...state.listaLivros, action.listaLivros],
-            }
-        case Types.TELA_PREENCHIDA:
-            return {
-                ...state,
-                telaInicial: true,
+                listaLivros: action.listaLivros,
             }
         default:
             return state;

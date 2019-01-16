@@ -8,7 +8,6 @@ export const Types = {
     BUSCAR_LIVROS_SUCESSO: 'buscar/BUSCAR_LIVROS_SUCESSO',
     BUSCAR_LIVROS_FIM: 'buscar/BUSCAR_LIVROS_FIM',
     BUSCAR_LIVROS_FALHA: 'buscar/BUSCAR_LIVROS_FALHA',
-    TELA_PREENCHIDA: 'buscar/TELA_PREENCHIDA',
 }
 
 export const Creators = {
@@ -44,32 +43,29 @@ export const Creators = {
         type: Types.BUSCAR_LISTAS_FALHA,
     }),
 
-    buscarListaLivros:(lista0, lista1, lista2, lista3) => {
+    buscarListaLivros: (lista0, lista1, lista2, lista3) => {
         return dispatch => {
-                async function busca(){
-                   const res = await buscaInicial(lista0, lista1, lista2, lista3)
-                   console.log(res)
-                }
-                
-                busca()
-                
-               
+            dispatch(Creators.inicioBuscaLivros())
+            async function busca() {
+                const res = await buscaInicial(lista0, lista1, lista2, lista3)
+                dispatch(Creators.buscarLivrosSucesso(res))
+            }
+            busca()
+
+
         }
     },
 
-buscarLivrosSucesso: listaLivros => ({
-    type: Types.BUSCAR_LIVROS_SUCESSO,
-    listaLivros,
-}),
+    buscarLivrosSucesso: listaLivros => ({
+        type: Types.BUSCAR_LIVROS_SUCESSO,
+        listaLivros,
+    }),
 
     buscarLivrosFim: () => ({
         type: Types.BUSCAR_LIVROS_FIM,
     }),
 
-        buscarLivrosFalha: () => ({
-            type: Types.BUSCAR_LIVROS_FALHA,
-        }),
-            telaPreenchida: () => ({
-                type: Types.TELA_PREENCHIDA,
-            }),
+    buscarLivrosFalha: () => ({
+        type: Types.BUSCAR_LIVROS_FALHA,
+    }),
 }

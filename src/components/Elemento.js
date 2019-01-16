@@ -26,7 +26,9 @@ class Elemento extends Component {
         return (
             <div className='Elemento'>
                 {
-                    this.props.telaInicial && this.props.listaLivros.map(lista => (<p>{lista}</p>))
+                    !this.props.carregandoListas && 
+                    !this.props.carregandoLivros &&
+                    this.props.listaLivros.map(livros => <Categoria livros={livros} key={this.props.listaLivros.indexOf(livros)} title={this.props.listaListas[this.props.listaLivros.indexOf(livros)].nomeL}/>)
 
 
                 }

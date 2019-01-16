@@ -1,18 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Titulo from './Titulo'
 import Livro from './Livro'
 
-class Categoria extends Component {  
-    render() {
-        return (
-            <div >
-                <Titulo/>
-                <hr />
-                <div className='Categoria'>
-                </div>
+function Categoria(props) {
+
+    return (
+        <div >
+            <Titulo title={props.title} />
+            <hr />
+            {
+                props.livros.map(livro => <Livro livro={livro} key={props.livros.indexOf(livro)}/>)
+            }
+            <div className='Categoria'>
             </div>
-        )
-    }
+        </div>
+    )
+
 }
 
 export default Categoria;
