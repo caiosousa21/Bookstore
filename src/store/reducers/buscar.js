@@ -6,6 +6,8 @@ const initialState = {
     carregandoListas: false,
     carregandoLivros: false,
     erro: false,
+    tela:false,
+    carrinho:[]
 }
 
 export default function buscar(state = initialState, action) {
@@ -16,21 +18,34 @@ export default function buscar(state = initialState, action) {
                 carregandoListas: true,
                 carregandoLivros: true,
             }
-        case Types.INICIO_BUSCA_LIVROS:
-            return {
-                ...state,
-            }
+      
         case Types.BUSCAR_LISTAS_SUCESSO:
             return {
                 ...state,
                 carregandoListas: false,
                 listaListas: action.listaListas,
             }
-        case Types.BUSCAR_LIVROS_SUCESSO:
+
+        case Types.INICIO_BUSCA_LIVROS:
+            return {
+                ...state,
+            }
+
+        case Types.INICIO_BUSCAR_LIVROS_SUCESSO:
             return {
                 ...state,
                 carregandoLivros: false,
                 listaLivros: action.listaLivros,
+            }
+        case Types.ADICIONAR_ITEM:
+            return{
+                ...state,
+                carrinho:[...state.carrinho, action.item]
+            }
+        case Types.TELA_INICIADA:
+            return{
+                ...state,
+                tela:true,
             }
         default:
             return state;

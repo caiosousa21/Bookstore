@@ -12,9 +12,10 @@ class Elemento extends Component {
     }
 
     componentDidUpdate() {
-        if (!this.props.carregandoListas && this.props.carregandoLivros) {
+        if (!this.props.carregandoListas && this.props.carregandoLivros && !this.props.tela) {
             const listaListas = this.props.listaListas.map(item => (item))
             this.telaInicial(listaListas);
+            this.props.telaIniciada()
         }
     }
 
@@ -29,8 +30,6 @@ class Elemento extends Component {
                     !this.props.carregandoListas && 
                     !this.props.carregandoLivros &&
                     this.props.listaLivros.map(livros => <Categoria livros={livros} key={this.props.listaLivros.indexOf(livros)} title={this.props.listaListas[this.props.listaLivros.indexOf(livros)].nomeL}/>)
-
-
                 }
             </div>
         )
@@ -40,7 +39,7 @@ class Elemento extends Component {
 const mapStateToProps = state => ({
     carregandoListas: state.buscar.carregandoListas,
     carregandoLivros: state.buscar.carregandoLivros,
-
+    tela: state.buscar.tela,
     listaListas: state.buscar.listaListas,
     listaLivros: state.buscar.listaLivros,
 })

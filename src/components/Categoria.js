@@ -7,11 +7,11 @@ function Categoria(props) {
     return (
         <div >
             <Titulo title={props.title} />
-            <hr />
-            {
-                props.livros.map(livro => <Livro livro={livro} key={props.livros.indexOf(livro)}/>)
-            }
-            <div className='Categoria'>
+            <hr /><div className='Categoria'>
+                {
+                    props.livros.map(livro => <Livro livro={livro} key={props.livros.indexOf(livro)} />)
+                }
+
             </div>
         </div>
     )

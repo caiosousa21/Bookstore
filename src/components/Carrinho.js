@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 import ItemCarrinho from './ItemCarrinho';
+import { connect } from 'react-redux'
+import id from 'uuid/v1'
 
 class Carrinho extends Component {
-    carregarItem = () => {
-        let item = [];
-        for (let i = 0; i < this.props.interior.length; i++) {
-            item.push(<ItemCarrinho key={'item'+i} />);
-        }
-        return item;
-    }
-
     render() {
         return (
             <div className='Carrinho'>
-               
+                {this.props.carrinho.map(
+                    item => 
+                        <ItemCarrinho item={item} key={id} />     
+                    )
+                }
             </div>
         )
     }
 }
 
-export default Carrinho;
+const mapStateToProps = state => ({
+    carrinho: state.buscar.carrinho
+})
+
+export default connect(mapStateToProps, null)(Carrinho);

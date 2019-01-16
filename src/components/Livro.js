@@ -7,7 +7,7 @@ function Livro(props) {
             <div className='Livro'>
             <Card titulo={props.livro.titulo} autor={props.livro.autor} editora={props.livro.editora} data={props.livro.data}/>
            
-            <Botoes livro={ ''} clickAdicionar={''}/>
+            <Botoes livro={props.livro}/>
             </div>
         )
     

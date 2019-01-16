@@ -5,9 +5,11 @@ export const Types = {
     INICIO_BUSCA_LIVROS: 'buscar/INICIO_BUSCA_LIVROS',
     BUSCAR_LISTAS_SUCESSO: 'buscar/BUSCAR_LISTAS_SUCESSO',
     BUSCAR_LISTAS_FALHA: 'buscar/BUSCAR_LISTAS_FALHA',
-    BUSCAR_LIVROS_SUCESSO: 'buscar/BUSCAR_LIVROS_SUCESSO',
+    INICIO_BUSCAR_LIVROS_SUCESSO: 'buscar/INICIO_BUSCAR_LIVROS_SUCESSO',
     BUSCAR_LIVROS_FIM: 'buscar/BUSCAR_LIVROS_FIM',
     BUSCAR_LIVROS_FALHA: 'buscar/BUSCAR_LIVROS_FALHA',
+    ADICIONAR_ITEM: 'buscar/ADICIONAR_iTEM',
+    TELA_INICIADA: 'TELA_INICIADA',
 }
 
 export const Creators = {
@@ -48,16 +50,14 @@ export const Creators = {
             dispatch(Creators.inicioBuscaLivros())
             async function busca() {
                 const res = await buscaInicial(lista0, lista1, lista2, lista3)
-                dispatch(Creators.buscarLivrosSucesso(res))
+                dispatch(Creators.inicioBuscarLivrosSucesso(res))
             }
             busca()
-
-
         }
     },
 
-    buscarLivrosSucesso: listaLivros => ({
-        type: Types.BUSCAR_LIVROS_SUCESSO,
+    inicioBuscarLivrosSucesso: listaLivros => ({
+        type: Types.INICIO_BUSCAR_LIVROS_SUCESSO,
         listaLivros,
     }),
 
@@ -68,4 +68,13 @@ export const Creators = {
     buscarLivrosFalha: () => ({
         type: Types.BUSCAR_LIVROS_FALHA,
     }),
+
+    adicionarItem:(item) =>({
+        type: Types.ADICIONAR_ITEM,
+        item,
+    }),
+
+    telaIniciada:() =>({
+        type: Types.TELA_INICIADA,
+    })
 }

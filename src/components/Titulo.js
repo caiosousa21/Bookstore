@@ -4,23 +4,17 @@ import FormInserir from './FormInserir'
 class Titulo extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            isHidden: true,
-            btnExpandido: false
-        }
+
     }
     handleClick = (e) => {
         e.preventDefault();
-        // this.setState({
-        //     isHidden: !this.state.isHidden,
-        //     btnExpandido: !this.state.btnExpandido
-        // })
+  
     }
 
     render() {
         return (
             <div className='Titulo'>
-                <h2 className='HeaderTitulo'>{this.props.categoria}</h2>
+                <h2 className='HeaderTitulo'>{this.props.title}</h2>
                 <div className='InserirDiv'>
                     <button className='Inserir' onClick={this.handleClick}>
                         Inserir Livro
