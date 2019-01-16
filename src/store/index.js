@@ -17,7 +17,7 @@ const persistConfig = {
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose 
 
-const middlewares = [thunk, logger]
+const middlewares = [thunk/*, logger*/]
 
 const store = createStore(reducers, composeEnhancers(
     applyMiddleware(...middlewares),

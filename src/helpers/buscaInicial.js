@@ -13,9 +13,7 @@ async function foo(lista0, lista1, lista2, lista3) {
             })
     
 
-    const retorno = () => Promise.all
-        (
-            [
+    const retorno = () => Promise.all([
                 busca(lista0),
                 busca(lista1),
                 busca(lista2),

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Carrinho from './Carrinho'
+import { connect } from 'react-redux'
 
 class Barra extends Component {
     constructor(props) {
@@ -20,11 +21,15 @@ class Barra extends Component {
                 <p className='PBarra'>Caio Books</p>
                 <div className='Canto'>
                     <button className='BtnCarrinho' onClick={() => this.handleClick()}>Carrinho</button>
-                    {!this.state.isHidden && <Carrinho />}
+                    {!this.state.isHidden && <Carrinho carrinho={this.props.carrinho}/>}
                 </div>
             </div>
         )
     }
 }
 
-export default Barra;
+const mapStateToProps = state => ({
+    carrinho: state.buscar.carrinho
+})
+
+export default connect(mapStateToProps, null)(Barra);
