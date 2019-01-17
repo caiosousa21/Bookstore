@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import FormInserir from './FormInserir'
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
-import {Creators as VisibilidadeActions} from '../store/actions/visibilidade'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { Creators as VisibilidadeActions } from '../store/actions/visibilidade'
+import InputBuscar from './InputBuscar'
 
 class Titulo extends Component {
     clickInserir = (e) => {
@@ -24,15 +25,17 @@ class Titulo extends Component {
                         Inserir Livro
                     </button>
                     {
-                        this.props.inserir_visivel && 
-                        <FormInserir id={this.props.id}/>
+                        this.props.inserir_visivel &&
+                        <FormInserir id={this.props.id} />
                     }
                 </div>
-                <button className='Buscar'  onClick={this.clickBuscar}>Buscar Livro</button>
-                {
-                    this.props.busca_visivel&&
-                    <div>BUSCANDO....</div>
-                }
+                <div className='BuscarDiv'>
+                    <button className='Buscar' onClick={this.clickBuscar}>Buscar Livro</button>
+                    {
+                        this.props.busca_visivel &&
+                        <InputBuscar />
+                    }
+                </div>
             </div>
         )
     }
