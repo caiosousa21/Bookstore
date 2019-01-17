@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import {Creators as BuscarActions} from '../store/actions/buscar'
+import {Creators as CarrinhoActions} from '../store/actions/carrinho'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 
 class Botoes extends Component {
     clickAdicionar = (e) => {
         e.preventDefault()
-        const item={a:this.props.livro.titulo}
-        this.props.adicionarItem(item.a)
+        this.props.adicionarItem(this.props.livro.titulo)
     }
 
     render() {
@@ -20,6 +19,6 @@ class Botoes extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators(BuscarActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(CarrinhoActions, dispatch);
 
 export default connect(null, mapDispatchToProps)(Botoes);

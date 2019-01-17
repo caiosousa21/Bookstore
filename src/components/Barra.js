@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Carrinho from './Carrinho'
 import { connect } from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {Creators as BuscarActions} from '../store/actions/buscar'
+import {Creators as CarrinhoActions} from '../store/actions/carrinho'
 
 class Barra extends Component {
     constructor(props) {
@@ -35,9 +35,9 @@ class Barra extends Component {
 }
 
 const mapStateToProps = state => ({
-    carrinho: state.buscar.carrinho
+    carrinho: state.carrinho.carrinho
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators(BuscarActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(CarrinhoActions, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Barra);

@@ -4,7 +4,6 @@ import FormInserir from './FormInserir'
 class Titulo extends Component {
     constructor(props) {
         super(props);
-
     }
     handleClick = (e) => {
         e.preventDefault();

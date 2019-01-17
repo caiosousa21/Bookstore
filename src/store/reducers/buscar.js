@@ -1,5 +1,4 @@
 import { Types } from '../actions/buscar'
-import id from 'uuid/v1'
 
 const initialState = {
     listaListas: [],
@@ -8,7 +7,6 @@ const initialState = {
     carregandoLivros: false,
     erro: false,
     tela:false,
-    carrinho:[]
 }
 
 export default function buscar(state = initialState, action) {
@@ -38,29 +36,13 @@ export default function buscar(state = initialState, action) {
                 carregandoLivros: false,
                 listaLivros: action.listaLivros,
             }
-        case Types.ADICIONAR_ITEM:
-            return{
-                ...state,
-                carrinho:[
-                    ...state.carrinho,
-                    action.item
-                ],
-            }
-
-        case Types.EXCLUIR_ITEM:
-            return{
-                ...state,
-                carrinho:[
-                    ...state.carrinho.slice(0, action.item),
-                    ...state.carrinho.slice(action.item+1)
-                ]
-            }
 
         case Types.TELA_INICIADA:
             return{
                 ...state,
                 tela:true,
             }
+            
         default:
             return state;
     }

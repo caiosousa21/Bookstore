@@ -70,16 +70,6 @@ export const Creators = {
         type: Types.BUSCAR_LIVROS_FALHA,
     }),
 
-    adicionarItem:(item) =>({
-        type: Types.ADICIONAR_ITEM,
-        item,
-    }),
-
-    excluirItem:(item) =>({
-        type: Types.EXCLUIR_ITEM,
-        item,
-    }),
-
     telaIniciada:() =>({
         type: Types.TELA_INICIADA,
     })
