@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ItemCarrinho extends Component {
-    render() {
-        return (
-            <div className='ItemCarrinho'>
-                <p className='PItem'>{this.props.item}</p>
-                {console.log(this.props)}
-                <button className='ExcluirItem' ></button>
-                <hr></hr>
-            </div>
-        )
-    }
+function ItemCarrinho(props) {
+    return (
+        <div className='ItemCarrinho'>
+            <p className='PItem'>{props.item}</p>
+            <button className='ExcluirItem' onClick={()=>props.clickExcluir(props.item)}></button>
+            <hr></hr>
+        </div>
+    )
+
 }
 export default ItemCarrinho;

@@ -44,13 +44,16 @@ export default function buscar(state = initialState, action) {
                 carrinho:[
                     ...state.carrinho,
                     action.item
-                ]
+                ],
             }
 
         case Types.EXCLUIR_ITEM:
             return{
                 ...state,
-                carrinho:[...state.carrinho, action.item]
+                carrinho:[
+                    ...state.carrinho.slice(0, action.item),
+                    ...state.carrinho.slice(action.item+1)
+                ]
             }
 
         case Types.TELA_INICIADA:

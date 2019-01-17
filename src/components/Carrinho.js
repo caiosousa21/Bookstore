@@ -8,7 +8,7 @@ function Carrinho(props){
             <div className='Carrinho'>
                 {props.carrinho.map(
                     item => 
-                        <ItemCarrinho item={item} key={id} />     
+                        <ItemCarrinho item={item} key={id} clickExcluir={props.clickExcluir}/>     
                     )
                 }
             </div>
