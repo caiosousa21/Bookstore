@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import {Creators as CarrinhoActions} from '../store/actions/carrinho'
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
+import { Creators as CarrinhoActions } from '../store/actions/carrinho'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 class Botoes extends Component {
     clickAdicionar = (e) => {
         e.preventDefault()
-        this.props.adicionarItem(this.props.livro.titulo)
+        const titulo = this.props.livro.titulo
+        this.props.adicionarItem(titulo)
     }
 
     render() {

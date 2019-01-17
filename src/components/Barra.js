@@ -18,6 +18,7 @@ class Barra extends Component {
     }
 
     clickExcluir = (item) =>{
+        console.log(item)
         this.props.excluirItem(this.props.carrinho.indexOf(item))
     }
 
