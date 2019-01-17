@@ -89,33 +89,25 @@ button{
 }
 
 .Inserir{
-    align-content: center;
-    display: grid;
+    margin-top: 20px;
     width: 183px;
     height:37px;
     background-color: cadetblue;
-    grid-template-rows: auto auto;
-    grid-template-rows: 50px 50px 50px
 }
 
 .FormInserir{
-    margin-top:8px;
+    display: flex;
     flex-direction: column;
-}
-
-.DivInserir{
+    justify-content: space-around;
     background-color: cadetblue;
-    grid-row-start: 2;
-    grid-column-start: 2;
+
 }
 
 .Buscar{
-    display: grid;
+    margin-top: 20px;
     width: 183px;
-    height: 150px;
+    height: 37px;
     background-color: darkkhaki;
-    grid-row-start: 1;
-    grid-column-start: 3;
 }
 
 .Card{

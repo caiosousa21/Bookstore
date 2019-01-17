@@ -60,7 +60,7 @@ class FormInserir extends Component {
                     <input type='text' className='InserirTitulo' onChange={e=>this.tituloChange(e)}></input>
                     <input type='text' className='InserirAutor' onChange={e=>this.autorChange(e)}></input>
                     <input type='text' className='InserirEditora' onChange={e=>this.editoraChange(e)}></input>
-                    <input type='Date' className='InserirData' onChange={e=>this.inserirChange(e)}></input>
+                    <input type='Date' className='InserirData' onChange={e=>this.dataChange(e)}></input>
                 </div>
                 <input type='submit'></input>
             </form>

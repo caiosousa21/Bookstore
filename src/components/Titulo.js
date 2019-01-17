@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import FormInserir from './FormInserir'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
-import {Creators as InserirActions} from '../store/actions/inserir'
+import {Creators as VisibilidadeActions} from '../store/actions/visibilidade'
 
 class Titulo extends Component {
-    handleClick = (e) => {
+    clickInserir = (e) => {
         e.preventDefault();
-        this.props.mudarVisibilidade();
+        this.props.mudarVisibilidadeInserir();
+    }
+
+    clickBuscar = (e) => {
+        e.preventDefault();
+        this.props.mudarVisibilidadeBusca();
     }
 
     render() {
@@ -15,24 +20,29 @@ class Titulo extends Component {
             <div className='Titulo'>
                 <h2 className='HeaderTitulo'>{this.props.title}</h2>
                 <div className='InserirDiv'>
-                    <button className='Inserir' onClick={this.handleClick}>
+                    <button className='Inserir' onClick={this.clickInserir}>
                         Inserir Livro
                     </button>
                     {
-                        this.props.visivel && 
+                        this.props.inserir_visivel && 
                         <FormInserir id={this.props.id}/>
                     }
                 </div>
-                <button className='Buscar'>Buscar Livro</button>
+                <button className='Buscar'  onClick={this.clickBuscar}>Buscar Livro</button>
+                {
+                    this.props.busca_visivel&&
+                    <div>BUSCANDO....</div>
+                }
             </div>
         )
     }
 }
 
 const mapStateToProps = state => ({
-    visivel: state.inserir.visivel,
+    inserir_visivel: state.visibilidade.inserir_visivel,
+    busca_visivel: state.visibilidade.busca_visivel,
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators(InserirActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(VisibilidadeActions, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Titulo);
