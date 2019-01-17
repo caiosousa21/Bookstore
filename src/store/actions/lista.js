@@ -1,16 +1,17 @@
 import buscaInicial from '../../helpers/buscaInicial'
 
 export const Types = {
-    INICIO_BUSCA_LISTAS: 'buscar/INICIO_BUSCA_LISTAS',
-    INICIO_BUSCA_LIVROS: 'buscar/INICIO_BUSCA_LIVROS',
-    BUSCAR_LISTAS_SUCESSO: 'buscar/BUSCAR_LISTAS_SUCESSO',
-    BUSCAR_LISTAS_FALHA: 'buscar/BUSCAR_LISTAS_FALHA',
-    INICIO_BUSCAR_LIVROS_SUCESSO: 'buscar/INICIO_BUSCAR_LIVROS_SUCESSO',
-    BUSCAR_LIVROS_FIM: 'buscar/BUSCAR_LIVROS_FIM',
-    BUSCAR_LIVROS_FALHA: 'buscar/BUSCAR_LIVROS_FALHA',
-    ADICIONAR_ITEM: 'buscar/ADICIONAR_iTEM',
-    EXCLUIR_ITEM: 'EXCLUIR_ITEM',
-    TELA_INICIADA: 'TELA_INICIADA',
+    INICIO_BUSCA_LISTAS: 'lista/INICIO_BUSCA_LISTAS',
+    INICIO_BUSCA_LIVROS: 'lista/INICIO_BUSCA_LIVROS',
+    BUSCAR_LISTAS_SUCESSO: 'lista/BUSCAR_LISTAS_SUCESSO',
+    BUSCAR_LISTAS_FALHA: 'lista/BUSCAR_LISTAS_FALHA',
+    INICIO_BUSCAR_LIVROS_SUCESSO: 'lista/INICIO_BUSCAR_LIVROS_SUCESSO',
+    BUSCAR_LIVROS_FIM: 'lista/BUSCAR_LIVROS_FIM',
+    BUSCAR_LIVROS_FALHA: 'lista/BUSCAR_LIVROS_FALHA',
+    ADICIONAR_ITEM: 'lista/ADICIONAR_iTEM',
+    EXCLUIR_ITEM: 'lista/EXCLUIR_ITEM',
+    TELA_INICIADA: 'lista/TELA_INICIADA',
+    INSERIR_LIVRO: 'lista/INSERIR_LIVRO',
 }
 
 export const Creators = {
@@ -72,5 +73,11 @@ export const Creators = {
 
     telaIniciada:() =>({
         type: Types.TELA_INICIADA,
-    })
+    }),
+
+    inserirLivro:(lista, listaId) =>({
+        type: Types.INSERIR_LIVRO,
+        lista,
+        listaId
+    }),
 }

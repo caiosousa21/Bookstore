@@ -1,4 +1,4 @@
-import { Types } from '../actions/buscar'
+import { Types } from '../actions/lista'
 
 const initialState = {
     listaListas: [],
@@ -6,7 +6,7 @@ const initialState = {
     carregandoListas: false,
     carregandoLivros: false,
     erro: false,
-    tela:false,
+    tela: false,
 }
 
 export default function buscar(state = initialState, action) {
@@ -17,7 +17,7 @@ export default function buscar(state = initialState, action) {
                 carregandoListas: true,
                 carregandoLivros: true,
             }
-      
+
         case Types.BUSCAR_LISTAS_SUCESSO:
             return {
                 ...state,
@@ -38,11 +38,20 @@ export default function buscar(state = initialState, action) {
             }
 
         case Types.TELA_INICIADA:
-            return{
+            return {
                 ...state,
-                tela:true,
+                tela: true,
             }
-            
+
+        case Types.INSERIR_LIVRO:
+            return {
+                ...state,
+                listaLivros:[
+                    ...state.listaLivros.slice(0, action.listaId),
+                    action.lista,
+                    ...state.listaLivros.slice(action.listaId + 1)]
+            }
+
         default:
             return state;
     }

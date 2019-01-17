@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import FormInserir from './FormInserir'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+import {Creators as InserirActions} from '../store/actions/inserir'
 
 class Titulo extends Component {
-    constructor(props) {
-        super(props);
-    }
     handleClick = (e) => {
         e.preventDefault();
-  
+        this.props.mudarVisibilidade();
     }
 
     render() {
@@ -18,11 +18,21 @@ class Titulo extends Component {
                     <button className='Inserir' onClick={this.handleClick}>
                         Inserir Livro
                     </button>
-                    <FormInserir clickAdicionarLivro={this.props.clickAdicionarLivro} categoria={this.props.categoria} indexCategoria={this.props.indexCategoria}/>
+                    {
+                        this.props.visivel && 
+                        <FormInserir id={this.props.id}/>
+                    }
                 </div>
                 <button className='Buscar'>Buscar Livro</button>
             </div>
         )
     }
 }
-export default Titulo;
+
+const mapStateToProps = state => ({
+    visivel: state.inserir.visivel,
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators(InserirActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Titulo);

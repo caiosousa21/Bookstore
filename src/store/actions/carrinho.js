@@ -1,6 +1,7 @@
 export const Types = {
-    ADICIONAR_ITEM: 'buscar/ADICIONAR_ITEM',
-    EXCLUIR_ITEM: 'buscar/EXCLUIR_ITEM',
+    ADICIONAR_ITEM: 'carrinho/ADICIONAR_ITEM',
+    EXCLUIR_ITEM: 'carrinho/EXCLUIR_ITEM',
+    MUDAR_VISIBILIDADE: 'carrinho/MUDAR_VISIBILIDADE',
 }
 
 export const Creators = {
@@ -12,5 +13,9 @@ export const Creators = {
     excluirItem:(itemId) =>({
         type: Types.EXCLUIR_ITEM,
         itemId,
+    }),
+
+    mudarVisibilidade: () => ({
+        type: Types.MUDAR_VISIBILIDADE,
     }),
 }

@@ -1,11 +1,13 @@
 import {combineReducers} from 'redux'
 
-import buscar from './buscar'
+import lista from './lista'
 import carrinho from './carrinho'
+import inserir from './inserir'
 
 const rootReducer = combineReducers({
-    buscar,
-    carrinho
+    lista,
+    carrinho,
+    inserir
 })
 
 export default rootReducer

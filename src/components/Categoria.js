@@ -6,7 +6,7 @@ function Categoria(props) {
 
     return (
         <div >
-            <Titulo title={props.title} />
+            <Titulo title={props.title} id={props.id}/>
             <hr /><div className='Categoria'>
                 {
                     props.livros.map(livro => <Livro livro={livro} key={props.livros.indexOf(livro)} />)

@@ -2,6 +2,7 @@ import { Types } from '../actions/carrinho'
 
 const initialState = {
     carrinho: [],
+    visivel: false,
 }
 
 export default function carrinho(state = initialState, action) {
@@ -21,6 +22,11 @@ export default function carrinho(state = initialState, action) {
                     ...state.carrinho.slice(0, action.itemId),
                     ...state.carrinho.slice(action.itemId + 1)
                 ]
+            }
+        case Types.MUDAR_VISIBILIDADE:
+            return {
+                ...state,
+                visivel: !state.visivel,
             }
         default:
             return state

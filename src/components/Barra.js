@@ -5,20 +5,11 @@ import {bindActionCreators} from 'redux'
 import {Creators as CarrinhoActions} from '../store/actions/carrinho'
 
 class Barra extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isHidden: true
-        }
-    }
     handleClick = () => {
-        this.setState({
-            isHidden: !this.state.isHidden
-        })
+       this.props.mudarVisibilidade();
     }
 
     clickExcluir = (item) =>{
-        console.log(item)
         this.props.excluirItem(this.props.carrinho.indexOf(item))
     }
 
@@ -28,7 +19,10 @@ class Barra extends Component {
                 <p className='PBarra'>Caio Books</p>
                 <div className='Canto'>
                     <button className='BtnCarrinho' onClick={() => this.handleClick()}>Carrinho</button>
-                    {!this.state.isHidden && <Carrinho carrinho={this.props.carrinho} clickExcluir={this.clickExcluir}/>}
+                    {
+                        this.props.visivel && 
+                        <Carrinho carrinho={this.props.carrinho} clickExcluir={this.clickExcluir}/>
+                    }
                 </div>
             </div>
         )
@@ -36,7 +30,8 @@ class Barra extends Component {
 }
 
 const mapStateToProps = state => ({
-    carrinho: state.carrinho.carrinho
+    carrinho: state.carrinho.carrinho,
+    visivel: state.carrinho.visivel,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators(CarrinhoActions, dispatch);

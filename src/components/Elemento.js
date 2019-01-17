@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import { Creators as BuscarActions } from '../store/actions/buscar'
+import { Creators as ListaActions } from '../store/actions/lista'
 
 import Categoria from './Categoria'
 import { resolve } from 'path';
@@ -29,7 +29,7 @@ class Elemento extends Component {
                 {
                     !this.props.carregandoListas && 
                     !this.props.carregandoLivros &&
-                    this.props.listaLivros.map(livros => <Categoria livros={livros} key={this.props.listaLivros.indexOf(livros)} title={this.props.listaListas[this.props.listaLivros.indexOf(livros)].nomeL}/>)
+                    this.props.listaLivros.map(livros => <Categoria livros={livros} key={this.props.listaLivros.indexOf(livros)} title={this.props.listaListas[this.props.listaLivros.indexOf(livros)].nomeL} id={this.props.listaLivros.indexOf(livros)}/>)
                 }
             </div>
         )
@@ -37,13 +37,13 @@ class Elemento extends Component {
 }
 
 const mapStateToProps = state => ({
-    carregandoListas: state.buscar.carregandoListas,
-    carregandoLivros: state.buscar.carregandoLivros,
-    tela: state.buscar.tela,
-    listaListas: state.buscar.listaListas,
-    listaLivros: state.buscar.listaLivros,
+    carregandoListas: state.lista.carregandoListas,
+    carregandoLivros: state.lista.carregandoLivros,
+    tela: state.lista.tela,
+    listaListas: state.lista.listaListas,
+    listaLivros: state.lista.listaLivros,
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators(BuscarActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(ListaActions, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Elemento);
